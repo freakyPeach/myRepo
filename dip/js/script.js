@@ -15,26 +15,23 @@ window.addEventListener('DOMContentLoaded', () => {
 	validationPhone(); //валидация инпутов телефона
 
 	const popupCall = () => {
-		let popupCall = document.querySelector('.popup-call'); //поищи в вёрстке название модального окна
+		let popupCall = document.querySelector('.popup-call'); 
 	
 		let showCall = (display='block', overflow='hidden') => {
 			popupCall.style.display = display;
 			document.body.style.overflow = overflow;
 		}; 
-		/* showCall нужна затем, чтобы при его открытии выключалась прокрутка страницы;
-		такая правка потом всё равно появится на двойной проверке. это чтоб тебе не мучиться*/
 	
-		document.body.addEventListener('click', (event) => { //вешаем обработчик на body
+		document.body.addEventListener('click', (event) => { 
 
-			let target = event.target; //получаем event.target для делегирования
+			let target = event.target; 
 			
 			if (target.classList.contains('call-btn')) {
-				showCall('block', 'hidden'); /*при клике на модалку окошко откроется
-				со свойствами (display='block', overflow='hidden'), мы при вызове это передаём*/
+				showCall('block', 'hidden'); 
 				
 			} else if (target.classList.contains('popup-close') 
 			|| target.classList.contains('popup-call')) {
-				showCall('none', ''); /* при клике на крестик или подложку - свойства уберутся, окно закроется*/
+				showCall('none', ''); 
 			}
 		});
 	};
